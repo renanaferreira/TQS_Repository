@@ -25,6 +25,7 @@ hs_err_pid*
 # Guiao
 TQS_weekly_Labs.pdf
 
-# Intellij Idea
+# Intellij
 .idea/
 *.iml
+*.iws
