@@ -10,3 +10,8 @@ additional contract for a set:
 * in a set containg elem X, the function contains must return True
 * in set containing X and Y, intersects should return true to set of X and Y
 * in two sets with the same elements created in difference instances, equals has to return True
+
+All new tests passed.
+
+### e) 
+According to Jacoco report, UI class does not have too much coverage, and in sets there is no branch coverage for different situations;
