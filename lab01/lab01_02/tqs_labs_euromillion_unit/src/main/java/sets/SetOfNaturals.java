@@ -1,8 +1,6 @@
 package sets;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 public class SetOfNaturals implements Iterable<Integer> {
 
@@ -81,7 +79,13 @@ public class SetOfNaturals implements Iterable<Integer> {
 		}
 
 		final SetOfNaturals other = (SetOfNaturals) obj;
-		return Objects.equals(this.collection, other.collection);
+
+		List<Integer> list01 = (List<Integer>) this.collection.clone();
+		Collections.sort(list01);
+		List<Integer> list02 = (List<Integer>) other.collection.clone();
+		Collections.sort(list02);
+
+		return Objects.equals(list01, list02);
 	}
 
 
