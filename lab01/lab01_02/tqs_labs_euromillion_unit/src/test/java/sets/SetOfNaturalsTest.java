@@ -61,5 +61,31 @@ public class SetOfNaturalsTest {
 
     }
 
+    @Test
+    public void testAddExistedInt() {
+        assertThrows(IllegalArgumentException.class, () -> setB.add(10));
+    }
+
+    @Test
+    public void testAddNotInt() {
+        assertThrows(IllegalArgumentException.class, () -> setB.add(-1));
+    }
+
+    @Test
+    public void testContainsX() {
+        assertTrue(setB.contains(10));
+    }
+
+    @Test
+    public void testSetContainsSubset() {
+        assertTrue(setD.intersects(setB));
+        assertTrue(setB.intersects(setD));
+    }
+
+    @Test
+    public void testSetsEquals() {
+        assertTrue(setB.equals(setD));
+    }
+
 
 }

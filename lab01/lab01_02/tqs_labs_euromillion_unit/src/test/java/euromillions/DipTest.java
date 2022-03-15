@@ -13,6 +13,7 @@ import java.util.Iterator;
 /**
  * @author ico0
  */
+
 public class DipTest {
 
     private Dip instance;
@@ -58,7 +59,6 @@ public class DipTest {
     public void testNumbersRange() {
         Dip badDip = new Dip(new int[]{10, 20, 30, 40, 60}, new int[]{1, 11});
         Iterator<Integer> it = badDip.getNumbersColl().iterator();
-        while()
     }
 
 }

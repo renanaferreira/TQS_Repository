@@ -56,7 +56,7 @@ public class Dip {
 
         Dip randomDip = new Dip();
         for (int i = 0; i < COUNT_NUMBER; ) {
-            int cadidate = generateRandomInt(MAX_NUMBER);
+            int candidate = generateRandomInt(MAX_NUMBER);
             if (!randomDip.getNumbersColl().contains(candidate)) {
                 randomDip.getNumbersColl().add(candidate);
                 i++;
