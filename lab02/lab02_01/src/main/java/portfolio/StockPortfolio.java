@@ -30,14 +30,11 @@ public class StockPortfolio {
     }
 
     public double getTotalValue(){
-        /**
         double total = 0;
         for (Stock st : stocks) {
             total+= market.getPrice(st.getName())*st.getQuantity();
         }
         return total;
-         **/
-        return 0.0;
     }
     public void addStock(Stock s) {
         this.stocks.add(s);
