@@ -6,7 +6,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNot.not;
 
+import io.github.bonigarcia.seljup.SeleniumJupiter;
+
 import org.hamcrest.core.Is;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,7 +34,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-
+@ExtendWith(SeleniumJupiter.class)
 public class NormalTest {
 
   private WebDriver driver;
