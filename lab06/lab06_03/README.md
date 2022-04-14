@@ -1,0 +1,1 @@
+a) the Technical Debt is 2h 23min to format the code and remove bugs and code smells.

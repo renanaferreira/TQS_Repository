@@ -1,35 +1,24 @@
 package tqsua.CarInfoSystem.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+public class CarDTO {
 
-@Entity
-public class Car {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long carId;
-
-    @NotNull
     private String maker;
     private String model;
 
-    public Car() {}
+    public CarDTO() {}
 
-    public Car(String maker, String model) {
+    public CarDTO(String maker, String model) {
         this.maker = maker;
         this.model = model;
     }
 
-    public void setCarId(Long id) {
-        this.carId = id;
-    }
-
     public Long getCarId() {
         return carId;
+    }
+
+    public void setCarId(Long carId) {
+        this.carId = carId;
     }
 
     public String getMaker() {
@@ -57,7 +46,7 @@ public class Car {
             return false;
         }
 
-        Car other = (Car) obj;
+        CarDTO other = (CarDTO) obj;
         if (this.getMaker() != other.getMaker()) {
             return false;
         }
@@ -75,4 +64,5 @@ public class Car {
         hash = hash * getModel().hashCode();
         return hash;
     }
+
 }

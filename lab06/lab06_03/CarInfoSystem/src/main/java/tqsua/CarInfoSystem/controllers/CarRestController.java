@@ -3,10 +3,9 @@ package tqsua.CarInfoSystem.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
-
 import tqsua.CarInfoSystem.entities.Car;
+import tqsua.CarInfoSystem.entities.CarDTO;
 import tqsua.CarInfoSystem.services.CarManagerService;
 
 import java.util.List;
@@ -20,7 +19,8 @@ public class CarRestController {
     private CarManagerService service;
 
     @PostMapping
-    public ResponseEntity<Car> createCar(@RequestBody Car car) {
+    public ResponseEntity<Car> createCar(@RequestBody CarDTO carDTO) {
+        Car car = new Car(carDTO.getMaker(), carDTO.getModel());
         System.out.printf("car01-2: %s\n", car.getMaker());
         Car saved = service.save(car);
         System.out.printf("car01-3: %s\n", saved.getMaker());
@@ -32,17 +32,21 @@ public class CarRestController {
         return service.getAllCars();
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = {RequestMethod.GET})
     public ResponseEntity<Car> getCarById(@PathVariable(value = "id") long carId) {
-        ResponseEntity<Car> response;
+
         Optional<Car> found = service.getCarDetails(carId);
-        try {
-            Car car = found.get();
-            response = new ResponseEntity<>(car, HttpStatus.OK);
-        } catch (Exception e) {
-            response = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+        Car car;
+        HttpStatus status;
+        if(found.isPresent()) {
+            car = found.get();
+            status = HttpStatus.OK;
+        } else {
+            car = null;
+            status = HttpStatus.NOT_FOUND;
         }
-        return response;
+        return new ResponseEntity<>(car, status);
     }
 
 
