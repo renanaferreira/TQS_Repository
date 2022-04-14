@@ -1,5 +1,7 @@
 package euromillions;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Objects;
 
 import sets.SetOfNaturals;
@@ -19,6 +21,15 @@ public class Dip {
     private static final int COUNT_NUMBER = 5;
     private static final int COUNT_STAR = 2;
 
+    private static Random generator;
+    static {
+        try {
+            generator = SecureRandom.getInstanceStrong();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private SetOfNaturals numbers;
     private SetOfNaturals starts;
 
@@ -37,6 +48,7 @@ public class Dip {
             throw new IllegalArgumentException("wrong number of elements in numbers/stars");
         }
 
+
     }
 
     public SetOfNaturals getNumbersColl() {
@@ -48,7 +60,6 @@ public class Dip {
     }
 
     private static int generateRandomInt(int max) {
-        Random generator = new Random();
         return generator.nextInt(max - 1) + 1;
     }
 

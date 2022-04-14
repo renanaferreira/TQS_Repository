@@ -26,7 +26,7 @@ public class EuromillionsDraw {
      *
      * @return new instance
      */
-    static public EuromillionsDraw generateRandomDraw() {
+    public static EuromillionsDraw generateRandomDraw() {
         return new EuromillionsDraw(Dip.generateRandomDip());
     }
 
