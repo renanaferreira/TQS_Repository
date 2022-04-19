@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.internal.verification.VerificationModeFactory;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
@@ -44,10 +45,11 @@ class AddressResolverTest {
 
         when(basicHttpClient.doHttpGet(contains(url))).thenReturn(mockResult);
 
-        Optional<Address> result = addrResolver.findAddressForLocation(40.6318, -8.658);
+        Optional<Address> optResult = addrResolver.findAddressForLocation(40.640661, -8.656688);
+        Address result = optResult.get();
         assertEquals( result, new Address( "Cais do Alboi", "Glória e Vera Cruz", "Centro", "3800-246", null) );
 
-        verify(basicHttpClient.doHttpGet(url));
+        verify(basicHttpClient, VerificationModeFactory.times(1)).doHttpGet(contains(url));
 
     }
 

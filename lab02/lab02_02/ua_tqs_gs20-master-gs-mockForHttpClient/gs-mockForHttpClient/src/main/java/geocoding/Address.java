@@ -13,14 +13,14 @@ import java.util.Objects;
 public class Address {
 
     private String road;
-    private String cirty;
+    private String city;
     private String state;
     private String zio;
     private String houseNumber;
 
     public Address(String road, String cirty, String state, String zio, String houseNumber) {
         this.road = road;
-        this.cirty = cirty;
+        this.city = cirty;
         this.state = state;
         this.zio = zio;
         this.houseNumber = houseNumber;
@@ -35,11 +35,11 @@ public class Address {
     }
 
     public String getCirty() {
-        return cirty;
+        return city;
     }
 
     public void setCirty(String cirty) {
-        this.cirty = cirty;
+        this.city = cirty;
     }
 
     public String getState() {
@@ -78,7 +78,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" + "road=" + road + ", cirty=" + cirty + ", state=" + state + ", zio=" + zio + ", houseNumber=" + houseNumber + '}';
+        return "Address{" + "road=" + road + ", cirty=" + city + ", state=" + state + ", zio=" + zio + ", houseNumber=" + houseNumber + '}';
     }
 
     @Override
@@ -102,7 +102,7 @@ public class Address {
         if (!Objects.equals(this.road, other.road)) {
             return false;
         }
-        if (!Objects.equals(this.cirty, other.cirty)) {
+        if (!Objects.equals(this.city, other.city)) {
             return false;
         }
         if (!Objects.equals(this.state, other.state)) {
